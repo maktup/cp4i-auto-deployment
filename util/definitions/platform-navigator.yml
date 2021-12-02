@@ -2,7 +2,7 @@ apiVersion: integration.ibm.com/v1beta1
 kind: PlatformNavigator
 metadata:
   name: pn-cloudpak-instance
-  namespace: my-dummy-cp4i
+  namespace: my-dummy-cp4i-temp
 spec:
   license:
     accept: true
