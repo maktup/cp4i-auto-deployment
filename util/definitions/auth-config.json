@@ -1,0 +1,9 @@
+{
+  "auths": {
+      "cp.icr.io": {
+          "username": "cp",
+          "password": "sha256~AsxpBJg7hGH4gnT1MrYQjQr0svbSP8RQuokfq6ZKOU0", 
+          "email": ""
+      }
+  }
+}
