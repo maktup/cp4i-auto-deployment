@@ -42,9 +42,9 @@ echo ">> Done .."
 
 echo -e "${green}> [ STEP 5 OUT 5 ]: Deploy the Platform Navigator - it will take ~45-min..${clear}"
 oc apply -f definitions/platform-navigator.yml -n $namespace &> /dev/null && sleep 60
-while [[ $(oc get PlatformNavigator/integration-pn-mvp -o 'jsonpath={..status.conditions[].type}') != *"Ready"* ]]; do echo ">>> waiting for PlatformNavigator to be Ready" && sleep 300; done
+while [[ $(oc get PlatformNavigator/pn-cloudpak-instance -o 'jsonpath={..status.conditions[].type}') != *"Ready"* ]]; do echo ">>> waiting for PlatformNavigator to be Ready" && sleep 300; done
 echo ">> Done .."
 
 echo ">> Platform Navigator access credentials .." && echo "# console_url";
-oc get PlatformNavigator integration-pn-mvp -o jsonpath='{.status.endpoints[].uri}' -n $namespace; echo ""
+oc get PlatformNavigator pn-cloudpak-instance -o jsonpath='{.status.endpoints[].uri}' -n $namespace; echo ""
 oc extract secret/platform-auth-idp-credentials -n ibm-common-services --to=- 
