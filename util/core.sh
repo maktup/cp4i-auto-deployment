@@ -1,5 +1,7 @@
 #!/bin/bash
 
+route=$(pwd)
+
 if ! command -v oc &> /dev/null; then
     echo "oc could not be found." && echo "Please refer to https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html"
     exit
@@ -16,7 +18,10 @@ if ! command -v python &> /dev/null; then
     exit
 fi
 
-set -a; . .env; set +a; green='\033[0;32m'; clear='\033[0m'
+#Show env vars: 
+grep -v '^#' .env
+
+set -a; . "${route}/.env"; set +a; green='\033[0;32m'; clear='\033[0m';
 
 echo -e "${green}> [ STEP 0 OUT 5 ]: Prepare CRs definitions .. ${clear}"
 for t in models/*py; do python $t; done

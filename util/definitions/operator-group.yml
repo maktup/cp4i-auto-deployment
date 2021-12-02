@@ -5,4 +5,4 @@ metadata:
   namespace: my-dummy-cp4i-temp
 spec:
   targetNamespaces:
-  - cp4i-demo
+  - my-dummy-cp4i-temp
